@@ -25,6 +25,7 @@ def main():
     ip=os.getenv("IP")
     virtNet=os.getenv("VIRTNET")
     subnet=os.getenv("SUBNET")
+    location=os.genevn("LOCATION")
 
 
     client = NetworkManagementClient(
@@ -36,7 +37,7 @@ def main():
         resource_group_name=resource_group_name,
         network_interface_name=nic,
         parameters={
-            "location": "eastus",
+            "location": f"{location}",
             "properties": {
                 "ipConfigurations": [
                     {
