@@ -24,6 +24,7 @@ def main():
     resource_group_name=os.getenv("RESOURCE_GROUP_NAME")
     nic=os.getenv("NIC")
     public_ip_address_name=os.getenv("IP")
+    location=os.getenv("LOCATION")
 
     client = NetworkManagementClient(
         credential=DefaultAzureCredential(),
@@ -34,7 +35,7 @@ def main():
         resource_group_name=resource_group_name,
         public_ip_address_name=public_ip_address_name,
         parameters={
-            "location": "eastus",
+            "location": f"{location}",
             "properties": {
                 "idleTimeoutInMinutes": 10,
                 "publicIPAddressVersion": "IPv4",
